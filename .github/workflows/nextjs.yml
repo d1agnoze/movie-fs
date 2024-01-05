@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./code/movies-app
+        working-directory: ./code/movies-app/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
