@@ -1,0 +1,26 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model movies {
+  Id                Int     @id @default(autoincrement())
+  Release_Date      String? @db.VarChar(255)
+  Title             String? @db.VarChar(255)
+  Overview          String? @db.Text
+  Popularity        Float?  @db.Float
+  Vote_Count        Int?
+  Vote_Average      Float?  @db.Float
+  Original_Language String? @db.VarChar(50)
+  Genre             String? @db.VarChar(255)
+  Poster_Url        String? @db.VarChar(255)
+
+  @@fulltext([Title])
+  @@fulltext([Genre])
+  @@fulltext([Title, Genre])
+}

@@ -8,5 +8,6 @@ services:
         - MYSQL_USER=${MYSQL_USER}
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    command: [ "--secure-file-priv=", "--loose-local-infile=1", "--local-infile=1" ]
     ports:
       - "${MYSQL_PORT}:3306"
